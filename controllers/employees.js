@@ -15,7 +15,10 @@ const getEmployee = (req, res) => {
 const createEmployee = async (req, res) => {
   try {
     console.log(req.body)
-    const employee = await Employee.create(req.body);
+    const employee = new Employee(req.body);
+    const inserted= employee.save();
+    // const savedTweet = await newTweet.save();
+
     
 
     res.status(201).json({ employee });
